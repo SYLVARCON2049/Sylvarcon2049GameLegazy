@@ -16,6 +16,42 @@ All VMs are configured to communicate through a dedicated VirtualBox NAT Network
 
 ⚠️ **IMPORTANT DISCLAIMER:** This is an unsupported legacy version provided "AS IS". It may contain bugs and is no longer actively maintained. Use at your own risk. We assume no responsibility for any issues, damages, or data loss that may occur from using this software.
 
+---
+
+## 🎮 New Version Available!
+
+**A completely redesigned version of Sylvarcon 2049 is now available!**
+
+Visit **[https://www.sylvarcon2049.com](https://www.sylvarcon2049.com)** to discover:
+
+✨ **New Features:**
+- **Professional Skills Certificates** - Earn industry-recognized certifications mapped to real cybersecurity competencies
+- **New Challenges and Missions** - Expanded content with advanced scenarios
+- **Enhanced Learning Experience** - Improved gameplay mechanics and educational content
+- **Modern Infrastructure** - Updated technology stack and better performance
+- **Active Support** - Regular updates, bug fixes, and community support
+
+💎 **Special Offer for Steam Players:**
+
+If you purchased the original game on Steam, you can **upgrade to Premium** by validating your Steam license!
+
+**How to upgrade:**
+1. Visit [www.sylvarcon2049.com](https://www.sylvarcon2049.com)
+2. Create an account or log in
+3. Link your Steam account to validate your purchase
+4. Get instant access to the Premium version with all new features
+
+**Benefits of Premium:**
+- All new content and challenges
+- Professional certification tracking
+- Priority support
+- Exclusive community features
+- Lifetime updates
+
+Don't miss out on the enhanced Sylvarcon experience! Visit the website today.
+
+---
+
 ## Prerequisites
 
 - VirtualBox 7.0.4 or higher installed
@@ -24,7 +60,7 @@ All VMs are configured to communicate through a dedicated VirtualBox NAT Network
   - Windows VMs: ~60 GB each
   - Total space needed: 100+ GB recommended for all missions
 - 7-Zip or compatible archive tool to extract .7z files
-- Download all four VM packages (.7z files)
+- Download all packages from **[www.sylvarcon2049.com](https://www.sylvarcon2049.com)**
 
 ---
 
@@ -32,11 +68,18 @@ All VMs are configured to communicate through a dedicated VirtualBox NAT Network
 
 ### Step 1: Download Required Files
 
+**Download Links Available at:** **[https://www.sylvarcon2049.com](https://www.sylvarcon2049.com)**
+
+All game files and VM packages can be downloaded from the official website.
+
 Download the following 7z packages:
-1. **PlayerVM.7z** - Contains Claire's missions and Kali investigation VM
-2. **Ethan_Easy.7z** - All Ethan easy difficulty missions
-3. **Ethan_Medium.7z** - All Ethan medium difficulty missions
-4. **Ethan_Hard.7z** - All Ethan hard difficulty missions
+1. **Sylvarcon 2049 Game Build** - Main game executable and files
+2. **PlayerVM.7z** - Contains Claire's missions and Kali investigation VM
+3. **Ethan_Easy.7z** - All Ethan easy difficulty missions
+4. **Ethan_Medium.7z** - All Ethan medium difficulty missions
+5. **Ethan_Hard.7z** - All Ethan hard difficulty missions
+
+⚠️ **Note:** Visit [www.sylvarcon2049.com](https://www.sylvarcon2049.com) to access the download section. All packages are hosted on the official website.
 
 ### Step 2: Extract PlayerVM
 
@@ -350,11 +393,20 @@ F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\
 
 This is an unsupported legacy release. No technical support, updates, or bug fixes will be provided.
 
-For community assistance or general questions only:
+**🎯 Want Full Support and New Features?**
+
+Upgrade to the new version at **[www.sylvarcon2049.com](https://www.sylvarcon2049.com)** for:
+- Active technical support
+- Professional skills certification
+- New challenges and content
+- Regular updates and improvements
+- Steam players can upgrade to Premium by validating their license
+
+For community assistance or general questions about this legacy version:
 - **Discord Community:** https://discord.com/invite/ujZCPCUSVD
 - **Email:** contact@sylvarcon2049.com (inquiries only, no support guaranteed)
 
-If you encounter issues:
+If you encounter issues with this legacy version:
 - Check game logs in `Sylvarcon 2049_Data\output_log.txt`
 - Verify VirtualBox installation is working correctly
 - Ensure all VM folders are extracted properly
@@ -420,9 +472,12 @@ By using this software, you acknowledge and accept all risks and agree to hold t
 
 ### Contact Information
 
-For licensing inquiries, permissions, or support:
+For licensing inquiries, permissions, or general information:
+- **Website:** https://www.sylvarcon2049.com (New version available here!)
 - **Email:** contact@sylvarcon2049.com
 - **Discord Community:** https://discord.com/invite/ujZCPCUSVD
+
+**Upgrade to Premium:** Steam players can validate their license at www.sylvarcon2049.com for exclusive Premium access.
 
 ---
 
