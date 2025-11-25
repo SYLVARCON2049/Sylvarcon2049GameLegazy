@@ -1,19 +1,30 @@
-# Sylvarcon2049GameLegazy
 # Virtual Machine Setup Guide for Sylvarcon 2049
 
 This guide explains how to set up the virtual machines required to run the complete Sylvarcon 2049 game experience.
 
 ## Overview
 
-The game uses VirtualBox virtual machines to simulate hacking environments. Two main VM packages are required:
-- **PlayerVM** - The main player environment
-- **Character VMs** (Ethan, Claire, etc.) - Mission-specific environments
+The game uses VirtualBox virtual machines to simulate hacking environments. Four main VM packages are required:
+- **PlayerVM** - Contains Claire's challenges and the Kali Linux investigation machine
+- **Ethan Easy Missions** - Ethan's easy difficulty missions
+- **Ethan Medium Missions** - Ethan's medium difficulty missions  
+- **Ethan Hard Missions** - Ethan's hard difficulty missions
+
+All VMs are configured to communicate through a dedicated VirtualBox NAT Network called "Sylvarcon" on the 12.0.0.0/24 subnet.
+
+⚠️ **Note:** This is a standalone version that does NOT require Steam to play. The game can be launched directly from the executable.
+
+⚠️ **IMPORTANT DISCLAIMER:** This is an unsupported legacy version provided "AS IS". It may contain bugs and is no longer actively maintained. Use at your own risk. We assume no responsibility for any issues, damages, or data loss that may occur from using this software.
 
 ## Prerequisites
 
 - VirtualBox 7.0.4 or higher installed
-- Sufficient disk space for VM files (~5-10 GB per VM)
-- Download both VM packages (ZIP files)
+- Sufficient disk space for VM files:
+  - Linux VMs: ~15 GB each
+  - Windows VMs: ~60 GB each
+  - Total space needed: 100+ GB recommended for all missions
+- 7-Zip or compatible archive tool to extract .7z files
+- Download all four VM packages (.7z files)
 
 ---
 
@@ -21,9 +32,11 @@ The game uses VirtualBox virtual machines to simulate hacking environments. Two 
 
 ### Step 1: Download Required Files
 
-Download the following ZIP packages:
-1. **PlayerVM.zip** - Main player virtual machine
-2. **Character VM packages** (e.g., Ethan_Medium_01.zip through Ethan_Hard_14.zip, Claire missions, etc.)
+Download the following 7z packages:
+1. **PlayerVM.7z** - Contains Claire's missions and Kali investigation VM
+2. **Ethan_Easy.7z** - All Ethan easy difficulty missions
+3. **Ethan_Medium.7z** - All Ethan medium difficulty missions
+4. **Ethan_Hard.7z** - All Ethan hard difficulty missions
 
 ### Step 2: Extract PlayerVM
 
@@ -31,7 +44,7 @@ Download the following ZIP packages:
 
 1. Navigate to your game installation directory
 2. Go to `redist` folder
-3. Extract the **PlayerVM.zip** contents into the `PlayerVM` folder
+3. Extract the **PlayerVM.7z** contents into the `PlayerVM` folder using 7-Zip
 
 **Expected structure:**
 ```
@@ -40,15 +53,20 @@ Sylvarcon 2049/
     └── PlayerVM/
         ├── installscript.vdf
         ├── testFile.txt
-        └── VirtualBox-7.0.4-154605-Win.exe
+        ├── VirtualBox-7.0.4-154605-Win.exe
+        ├── Claire_Mission_XX/
+        └── Sylvarcon-2049/ (Kali Linux VM)
 ```
 
-### Step 3: Extract Character VMs (Ethan Example)
+### Step 3: Extract Ethan Mission Packages
 
 **Location:** `F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\` (root game directory)
 
 1. Navigate to your game installation root directory
-2. Extract character VM folders directly to the root
+2. Extract each Ethan mission package directly to the root:
+   - Extract **Ethan_Easy.7z** 
+   - Extract **Ethan_Medium.7z**
+   - Extract **Ethan_Hard.7z**
 
 **Expected structure:**
 ```
@@ -57,16 +75,113 @@ Sylvarcon 2049/
 ├── Sylvarcon 2049_Data/
 ├── redist/
 ├── MonoBleedingEdge/
+├── Ethan_Easy_01/
+├── Ethan_Easy_02/
+├── ...
 ├── Ethan_Medium_01/
 ├── Ethan_Medium_02/
-├── Ethan_Medium_03/
 ├── ...
-├── Ethan_Hard_14/
-├── Claire_Mission_01/
-└── Claire_Mission_02/
+├── Ethan_Hard_01/
+├── Ethan_Hard_02/
+└── ...
 ```
 
-⚠️ **Important:** Character VM folders must be in the game root directory, NOT inside subdirectories.
+⚠️ **Important:** Ethan mission VM folders must be in the game root directory, NOT inside subdirectories.
+
+---
+
+## VirtualBox NAT Network Configuration
+
+The game requires a specific VirtualBox NAT Network for VM communication. The game automatically creates this network, but you can also configure it manually if needed.
+
+### Automatic Configuration
+
+On first launch, the game will automatically:
+1. Create a NAT Network named "Sylvarcon"
+2. Configure it with network range 12.0.0.0/24
+3. Enable DHCP for automatic IP assignment
+4. Start the network
+
+### Manual Configuration Steps
+
+If you need to configure the network manually or troubleshoot network issues:
+
+#### Using VBoxManage (Command Line)
+
+1. Open PowerShell or Command Prompt as Administrator
+
+2. Navigate to VirtualBox installation folder:
+   ```powershell
+   cd "C:\Program Files\Oracle\VirtualBox"
+   ```
+
+3. Remove any existing "Sylvarcon" network (if present):
+   ```powershell
+   .\VBoxManage.exe natnetwork remove --netname Sylvarcon
+   ```
+
+4. Create the Sylvarcon NAT Network:
+   ```powershell
+   .\VBoxManage.exe natnetwork add --netname Sylvarcon --network "12.0.0.0/24" --enable --dhcp on
+   ```
+
+5. Start the network:
+   ```powershell
+   .\VBoxManage.exe natnetwork start --netname Sylvarcon
+   ```
+
+6. Verify the network was created successfully:
+   ```powershell
+   .\VBoxManage.exe list natnets
+   ```
+
+   Expected output should show:
+   ```
+   NetworkName: Sylvarcon
+   Network:     12.0.0.0/24
+   Gateway:     12.0.0.1
+   IPv6:        No
+   Enabled:     Yes
+   ```
+
+#### Using VirtualBox GUI
+
+1. Open VirtualBox Manager
+2. Go to **File** → **Preferences** (or **Tools** → **Network**)
+3. Select the **Network** tab
+4. Click on **NAT Networks**
+5. Click the **+** button to add a new NAT Network
+6. Configure the network:
+   - **Network Name:** Sylvarcon
+   - **Network CIDR:** 12.0.0.0/24
+   - **Enable DHCP:** ✓ Checked
+   - **Supports IPv6:** (Optional)
+7. Click **OK** to save
+
+### Verifying Network Configuration
+
+After configuration, verify that:
+- The network "Sylvarcon" appears in VirtualBox NAT Networks list
+- Network is enabled (Status: Yes)
+- All mission VMs are configured to use this network
+- DHCP is enabled for automatic IP assignment
+
+### Troubleshooting Network Issues
+
+**Problem:** VMs cannot communicate with each other
+
+**Solution:**
+- Verify all VMs are using the "Sylvarcon" NAT Network (not "NAT" adapter)
+- Restart the Sylvarcon network: `VBoxManage natnetwork stop --netname Sylvarcon` then `VBoxManage natnetwork start --netname Sylvarcon`
+- Check VirtualBox is not blocked by Windows Firewall
+- Ensure virtualization (VT-x/AMD-V) is enabled in BIOS
+
+**Problem:** Network creation fails
+
+**Solution:**
+- Run VBoxManage as Administrator
+- Remove any conflicting networks with similar IP ranges
+- Restart VirtualBox service: `services.msc` → Find "VirtualBox" services → Restart
 
 ---
 
@@ -89,7 +204,7 @@ saves/
 ├── settingsTut.sav       (1 KB) - Tutorial settings
 ├── SLOT1.sav             (3 KB) - Save slot 1
 ├── SLOT2.sav             (3 KB) - Save slot 2
-└── steam_autocloud.vdf   (1 KB) - Steam cloud sync
+└── steam_autocloud.vdf   (1 KB) - Steam cloud config (not used in standalone version)
 ```
 
 ### Restoring Original Save Files
@@ -136,21 +251,25 @@ F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\
 │   └── ...
 │
 ├── redist\                                     [Redistribution files]
-│   ├── PlayerVM\                               [Extract PlayerVM.zip here]
+│   ├── PlayerVM\                               [Extract PlayerVM.7z here]
 │   │   ├── installscript.vdf
 │   │   ├── testFile.txt
-│   │   └── VirtualBox-7.0.4-154605-Win.exe
+│   │   ├── VirtualBox-7.0.4-154605-Win.exe
+│   │   ├── Claire_Mission_XX\
+│   │   └── Sylvarcon-2049\                     [Kali Linux investigation VM]
 │   └── ...
 │
 ├── MonoBleedingEdge\                           [Unity runtime]
 │
-├── Ethan_Medium_01\                            [Character VMs - extract in root]
-├── Ethan_Medium_02\
-├── Ethan_Medium_03\
+├── Ethan_Easy_01\                              [Extract from Ethan_Easy.7z]
+├── Ethan_Easy_02\
 ├── ...
-├── Ethan_Hard_14\
-├── Claire_Mission_01\
-└── Claire_Mission_02\
+├── Ethan_Medium_01\                            [Extract from Ethan_Medium.7z]
+├── Ethan_Medium_02\
+├── ...
+├── Ethan_Hard_01\                              [Extract from Ethan_Hard.7z]
+├── Ethan_Hard_02\
+└── ...
 ```
 
 ---
@@ -180,27 +299,68 @@ F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\
 **Problem:** Not enough space for VMs
 
 **Solution:**
-- Each mission VM requires ~300-800 MB
-- Ensure at least 10 GB free space on the installation drive
-- Consider moving installation to a larger drive
+- Linux mission VMs require approximately 15 GB each when extracted
+- Windows mission VMs require approximately 60 GB each when extracted
+- Total space needed: 100+ GB for all missions (varies by mission count)
+- Ensure at least 150 GB free space on the installation drive for optimal performance
+- Consider moving installation to a larger drive or external SSD
+- Delete unused mission VMs to free up space if needed
+
+### Network Communication Issues
+
+**Problem:** VMs cannot connect to each other
+
+**Solution:**
+- Verify the "Sylvarcon" NAT Network exists in VirtualBox
+- Check that all VMs are configured to use NAT Network (not regular NAT)
+- Restart the Sylvarcon network (see NAT Network Configuration section)
+- Ensure Windows Firewall allows VirtualBox
+
+### 7-Zip Extraction Issues
+
+**Problem:** Cannot extract .7z files
+
+**Solution:**
+- Download and install 7-Zip from https://www.7-zip.org/
+- Right-click the .7z file → 7-Zip → Extract Here
+- Ensure sufficient disk space before extraction
+- Verify downloaded files are not corrupted (check file size)
 
 ---
 
 ## Additional Notes
 
+- **⚠️ LEGACY VERSION:** This is an unsupported version that may contain bugs and is provided without any warranties
+- **Standalone Version:** This version does NOT require Steam. Launch the game directly from `Sylvarcon 2049.exe`
+- **No Support:** No technical support, updates, or bug fixes will be provided for this version
+- **Use at Own Risk:** Users assume all responsibility for any issues that may arise
+- **Backup Recommended:** Always backup your system and data before installation
 - **First Launch:** The game will automatically configure VirtualBox settings on first run
-- **Steam Cloud:** Save files can sync via Steam Cloud (requires `steam_autocloud.vdf`)
+- **Save Files:** All progress is saved locally in the `saves` folder (no cloud sync in standalone version)
 - **VM Performance:** Ensure VT-x/AMD-V virtualization is enabled in BIOS for optimal performance
-- **Updates:** Character VM packages may be updated; check for new versions periodically
+- **Disk Space:** VMs are resource-intensive. Linux VMs (~15 GB) and Windows VMs (~60 GB) require significant storage
+- **Storage Recommendations:** Use an SSD for better VM performance and faster loading times
+- **Updates:** Character VM packages may be updated; check for new versions periodically (no guarantee of availability)
 
 ---
 
 ## Support
 
-For technical issues or questions:
+**⚠️ NO OFFICIAL SUPPORT PROVIDED FOR THIS VERSION ⚠️**
+
+This is an unsupported legacy release. No technical support, updates, or bug fixes will be provided.
+
+For community assistance or general questions only:
+- **Discord Community:** https://discord.com/invite/ujZCPCUSVD
+- **Email:** contact@sylvarcon2049.com (inquiries only, no support guaranteed)
+
+If you encounter issues:
 - Check game logs in `Sylvarcon 2049_Data\output_log.txt`
 - Verify VirtualBox installation is working correctly
 - Ensure all VM folders are extracted properly
+- Seek help from the community (no official support available)
+
+**Remember:** You use this software at your own risk and responsibility.
 
 ---
 
@@ -237,6 +397,27 @@ Unauthorized use, reproduction, distribution, or modification of this software m
 
 This software is provided "AS IS" without warranty of any kind, either express or implied. The copyright holders shall not be liable for any damages arising from the use or inability to use this software.
 
+**ADDITIONAL LIABILITY DISCLAIMER:**
+
+- This is an **UNSUPPORTED LEGACY VERSION** no longer under active maintenance or support
+- The software **MAY CONTAIN BUGS, ERRORS, OR COMPATIBILITY ISSUES**
+- Use of this software is **ENTIRELY AT YOUR OWN RISK**
+- We assume **NO RESPONSIBILITY OR LIABILITY** for:
+  - Any damage to your computer, hardware, or virtual machines
+  - Data loss or corruption
+  - System instability or crashes
+  - Compatibility issues with your operating system or hardware
+  - Performance issues or security vulnerabilities
+  - Any other direct, indirect, incidental, or consequential damages
+- **NO TECHNICAL SUPPORT** is provided for this version
+- Users are **SOLELY RESPONSIBLE** for:
+  - Backing up their data before installation
+  - Ensuring system compatibility
+  - Any consequences of using this software
+  - Compliance with all applicable laws and regulations
+
+By using this software, you acknowledge and accept all risks and agree to hold the copyright holders harmless from any and all claims, damages, or liabilities.
+
 ### Contact Information
 
 For licensing inquiries, permissions, or support:
@@ -245,7 +426,7 @@ For licensing inquiries, permissions, or support:
 
 ---
 
-**Version:** 1.0  
+**Version:** 1.0 (Legacy/Unsupported)
 **Last Updated:** November 2025  
-**Game Version:** Sylvarcon 2049 (Steam Edition)
-
+**Game Version:** Sylvarcon 2049 (Standalone Edition - No Steam Required)
+**Status:** ⚠️ UNSUPPORTED - USE AT YOUR OWN RISK ⚠️
