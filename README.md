@@ -1,10 +1,84 @@
-# Virtual Machine Setup Guide for Sylvarcon 2049
+# Sylvarcon 2049 - Complete Setup Guide
 
-This guide explains how to set up the virtual machines required to run the complete Sylvarcon 2049 game experience.
+---
 
-## Overview
+# 🎮 NEW VERSION AVAILABLE!
 
-The game uses VirtualBox virtual machines to simulate hacking environments. Four main VM packages are required:
+## **The Next Generation of Sylvarcon 2049 is Here!**
+
+Visit **[www.sylvarcon2049.com](https://www.sylvarcon2049.com)** to experience the completely redesigned platform.
+
+### ✨ What's New in the 2025 Platform:
+
+#### 🏆 Professional Skills Certificates
+Earn **industry-recognized certifications** mapped to real cybersecurity competencies. Build your professional portfolio while playing.
+
+#### 🎯 New Challenges and Missions
+Experience **expanded content** with advanced scenarios designed by cybersecurity professionals. More complex, more realistic, more rewarding.
+
+#### 🚀 Enhanced Learning Experience
+Improved gameplay mechanics and educational content with:
+- Interactive tutorials and guided learning paths
+- Real-time feedback and hints
+- Progress tracking and skill assessment
+- Integration with professional certification programs
+
+#### 💻 Modern Infrastructure
+Built with an **updated technology stack** offering:
+- Cloud-based infrastructure for better performance
+- No complex VM setup required for basic missions
+- Play from any compatible device
+- Automatic updates and content delivery
+
+#### 🛡️ Active Support
+- Regular updates and bug fixes
+- Official technical support team
+- Active community with thousands of players
+- New features based on community feedback
+
+---
+
+### 💎 **SPECIAL OFFER FOR STEAM PLAYERS**
+
+**If you purchased the original game on Steam, upgrade to Premium for FREE!**
+
+#### How to Upgrade:
+1. Visit [www.sylvarcon2049.com](https://www.sylvarcon2049.com)
+2. Create an account or log in
+3. Link your Steam account to validate your original purchase
+4. Get instant access to Premium with all features
+
+#### Premium Benefits:
+✓ **All New Content** - Access to all missions and challenges  
+✓ **Professional Certifications** - Track your cybersecurity credentials  
+✓ **Priority Support** - Expert help when you need it  
+✓ **Exclusive Features** - Tournaments, competitions, and events  
+✓ **Lifetime Updates** - Always get the latest content  
+✓ **No Additional Cost** - Your Steam purchase validates Premium access
+
+---
+
+### 🌐 Get Started with the New Platform
+
+**Visit [www.sylvarcon2049.com](https://www.sylvarcon2049.com) today!**
+
+---
+---
+---
+
+# 📦 Legacy Version Setup (Standalone)
+
+**This section is for users who want to play the original standalone version.**
+
+⚠️ **IMPORTANT:** This is an **unsupported legacy version** provided "AS IS". It may contain bugs and is no longer actively maintained. We strongly recommend using the new platform at [www.sylvarcon2049.com](https://www.sylvarcon2049.com).
+
+⚠️ **DISCLAIMER:** Use at your own risk. We assume no responsibility for any issues, damages, or data loss that may occur from using this legacy software.
+
+---
+
+## About This Legacy Version
+
+This standalone version uses VirtualBox virtual machines to simulate hacking environments. Four main VM packages are available:
 - **PlayerVM** - Contains Claire's challenges and the Kali Linux investigation machine
 - **Ethan Easy Missions** - Ethan's easy difficulty missions
 - **Ethan Medium Missions** - Ethan's medium difficulty missions  
@@ -12,47 +86,11 @@ The game uses VirtualBox virtual machines to simulate hacking environments. Four
 
 All VMs are configured to communicate through a dedicated VirtualBox NAT Network called "Sylvarcon" on the 12.0.0.0/24 subnet.
 
-⚠️ **Note:** This is a standalone version that does NOT require Steam to play. The game can be launched directly from the executable.
-
-⚠️ **IMPORTANT DISCLAIMER:** This is an unsupported legacy version provided "AS IS". It may contain bugs and is no longer actively maintained. Use at your own risk. We assume no responsibility for any issues, damages, or data loss that may occur from using this software.
+**Note:** This is a standalone version that does NOT require Steam to play.
 
 ---
 
-## 🎮 New Version Available!
-
-**A completely redesigned version of Sylvarcon 2049 is now available!**
-
-Visit **[https://www.sylvarcon2049.com](https://www.sylvarcon2049.com)** to discover:
-
-✨ **New Features:**
-- **Professional Skills Certificates** - Earn industry-recognized certifications mapped to real cybersecurity competencies
-- **New Challenges and Missions** - Expanded content with advanced scenarios
-- **Enhanced Learning Experience** - Improved gameplay mechanics and educational content
-- **Modern Infrastructure** - Updated technology stack and better performance
-- **Active Support** - Regular updates, bug fixes, and community support
-
-💎 **Special Offer for Steam Players:**
-
-If you purchased the original game on Steam, you can **upgrade to Premium** by validating your Steam license!
-
-**How to upgrade:**
-1. Visit [www.sylvarcon2049.com](https://www.sylvarcon2049.com)
-2. Create an account or log in
-3. Link your Steam account to validate your purchase
-4. Get instant access to the Premium version with all new features
-
-**Benefits of Premium:**
-- All new content and challenges
-- Professional certification tracking
-- Priority support
-- Exclusive community features
-- Lifetime updates
-
-Don't miss out on the enhanced Sylvarcon experience! Visit the website today.
-
----
-
-## Prerequisites
+## Prerequisites for Legacy Version
 
 - VirtualBox 7.0.4 or higher installed
 - Sufficient disk space for VM files:
@@ -60,11 +98,11 @@ Don't miss out on the enhanced Sylvarcon experience! Visit the website today.
   - Windows VMs: ~60 GB each
   - Total space needed: 100+ GB recommended for all missions
 - 7-Zip or compatible archive tool to extract .7z files
-- Download all packages from **[www.sylvarcon2049.com](https://www.sylvarcon2049.com)**
+- Download all legacy packages from **[www.sylvarcon2049.com](https://www.sylvarcon2049.com)** (legacy download section)
 
 ---
 
-## Installation Instructions
+## Legacy Version Installation Instructions
 
 ### Step 1: Download Required Files
 
@@ -83,9 +121,9 @@ Download the following 7z packages:
 
 ### Step 2: Extract PlayerVM
 
-**Location:** `F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\redist\PlayerVM\`
+**Location:** `Sylvarcon 2049\redist\PlayerVM\`
 
-1. Navigate to your game installation directory
+1. Navigate to your Sylvarcon 2049 installation directory
 2. Go to `redist` folder
 3. Extract the **PlayerVM.7z** contents into the `PlayerVM` folder using 7-Zip
 
@@ -103,9 +141,9 @@ Sylvarcon 2049/
 
 ### Step 3: Extract Ethan Mission Packages
 
-**Location:** `F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\` (root game directory)
+**Location:** `Sylvarcon 2049\` (root game directory)
 
-1. Navigate to your game installation root directory
+1. Navigate to your Sylvarcon 2049 installation root directory
 2. Extract each Ethan mission package directly to the root:
    - Extract **Ethan_Easy.7z** 
    - Extract **Ethan_Medium.7z**
@@ -232,7 +270,7 @@ After configuration, verify that:
 
 ### Save File Location
 
-**Path:** `F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\Sylvarcon 2049_Data\saves\`
+**Path:** `Sylvarcon 2049\Sylvarcon 2049_Data\saves\`
 
 The save files store your game progress, including:
 - Campaign progression
@@ -279,7 +317,7 @@ To continue from a specific point in the campaign:
 Complete installation structure:
 
 ```
-F:\VM-DRIVE (F)\SteamLibrary\steamapps\common\Sylvarcon 2049\
+Sylvarcon 2049\
 │
 ├── Sylvarcon 2049.exe                          [Game executable]
 ├── UnityCrashHandler64.exe
@@ -481,7 +519,17 @@ For licensing inquiries, permissions, or general information:
 
 ---
 
-**Version:** 1.0 (Legacy/Unsupported)
+**Legacy Version:** 1.0 (Unsupported)  
 **Last Updated:** November 2025  
-**Game Version:** Sylvarcon 2049 (Standalone Edition - No Steam Required)
+**Game Version:** Sylvarcon 2049 (Standalone Edition - No Steam Required)  
 **Status:** ⚠️ UNSUPPORTED - USE AT YOUR OWN RISK ⚠️
+
+---
+
+## 🌟 Remember: The New Version Awaits!
+
+**For the best Sylvarcon 2049 experience with full support, new features, and professional certifications:**
+
+👉 **Visit [www.sylvarcon2049.com](https://www.sylvarcon2049.com)**
+
+Steam players get **FREE Premium upgrade**!
