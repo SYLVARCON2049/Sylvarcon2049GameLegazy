@@ -32,7 +32,9 @@ All VMs are configured to communicate through a dedicated VirtualBox NAT Network
   - Windows VMs: ~60 GB each
   - Total space needed: 100+ GB recommended for all missions
 - 7-Zip or compatible archive tool to extract .7z files
-- Download all legacy packages from **[[www.sylvarcon2049.com]()](https://www.sylvarcon2049.com)** (legacy download section)
+- Download all legacy packages from the following OneDrive folder (legacy download section):  
+[OneDrive – Sylvarcon 2049 Legacy Packages](https://1drv.ms/f/c/247d16c23b691d87/IgCp8RAvYTiNTY_krJbL4ymiAWoBGjbUlJVMRFLfDc51Ze4?e=fWoN0K)
+
 
 ---
 
