@@ -96,3 +96,117 @@ Sylvarcon 2049/
         ├── VirtualBox-7.0.4-154605-Win.exe
         ├── Claire_Mission_XX/
         └── Sylvarcon-2049/      (Kali Linux VM)
+
+Step 3: Extract Ethan Mission Packages
+Target Location: Sylvarcon 2049\ (root game directory)
+Navigate to your Sylvarcon 2049 installation root directory.
+
+Extract each Ethan mission package directly to the root:
+Extract Ethan_Easy.7z
+Extract Ethan_Medium.7z
+Extract Ethan_Hard.7z
+
+Expected structure:
+Sylvarcon 2049/
+├── Sylvarcon 2049.exe
+├── Sylvarcon 2049_Data/
+├── redist/
+├── MonoBleedingEdge/
+├── Ethan_Easy_01/
+├── Ethan_Medium_01/
+├── Ethan_Hard_01/
+└── ...
+
+[!IMPORTANT]
+Ethan mission VM folders must be in the game root directory, NOT inside subdirectories.
+VirtualBox NAT Network Configuration
+The game requires a specific VirtualBox NAT Network for VM communication.
+Automatic Configuration
+On first launch, the game will automatically:
+Create a NAT Network named "Sylvarcon".
+Configure it with network range 12.0.0.0/24.
+Enable DHCP.
+Start the network.
+Manual Configuration Steps (PowerShell)
+If you need to configure manually or troubleshoot:
+Open PowerShell as Administrator.
+Run the following commands:
+<!-- end list -->
+
+# Navigate to VirtualBox folder
+cd "C:\Program Files\Oracle\VirtualBox"
+
+# Remove existing network (if needed)
+.\VBoxManage.exe natnetwork remove --netname Sylvarcon
+
+# Create the Sylvarcon NAT Network
+.\VBoxManage.exe natnetwork add --netname Sylvarcon --network "12.0.0.0/24" --enable --dhcp on
+
+# Start the network
+
+.\VBoxManage.exe natnetwork start --netname Sylvarcon
+
+# Verify configuration
+.\VBoxManage.exe list natnets
+
+Expected Output:
+
+NetworkName: Sylvarcon
+Network:     12.0.0.0/24
+Gateway:     12.0.0.1
+IPv6:        No
+Enabled:     Yes
+
+Save Game Management
+Path: Sylvarcon 2049\Sylvarcon 2049_Data\saves\
+The save files store campaign progression, statistics, and VM configs.
+Restoring Original Save Files
+To continue from a specific point:
+Navigate to Sylvarcon 2049_Data\saves\.
+Backup your current saves (optional).
+Copy the original save files into the saves folder:
+Replace SLOT1.sav or SLOT2.sav.
+Keep settings.sav for preferences.
+Launch the game.
+[!NOTE]
+Overwriting save files will permanently replace your current progress unless you create a backup.
+
+Troubleshooting
+
+Problem Possible Solution
+VM Not Found Error Verify character VM folders are in the game root directory. Check folder names match exactly (case-sensitive).
+Save File Issues Verify save files are in Sylvarcon 2049_Data\saves\ and permissions are not read-only.
+Disk Space Issues Linux VMs need ~15 GB; Windows VMs need ~60 GB. Ensure 150GB+ free space for optimal performance.
+Network Issues Verify "Sylvarcon" NAT Network exists. Restart it via VBoxManage. Check Windows Firewall.
+7-Zip Issues Use the latest 7-Zip. Ensure download isn't corrupted. Check disk space before extracting.
+
+Legal Notice and Copyright
+© 2025 Sylvarcon 2049®. All Rights Reserved.
+Sylvarcon 2049® is a registered trademark. All game content is the exclusive property of the copyright holders.
+License Terms
+This software is licensed, not sold.
+Personal Use Only: Licensed for personal, non-commercial use.
+No Redistribution: You may not distribute, share, or sell game assets/VMs.
+No Modification: Reverse engineering is prohibited.
+Warranty Disclaimer
+[!WARNING]
+NO WARRANTY
+This software is provided "AS IS" without warranty of any kind. The copyright holders shall not be liable for any damages arising from the use or inability to use this software.
+ADDITIONAL LIABILITY DISCLAIMER:
+This is an UNSUPPORTED LEGACY VERSION.
+The software MAY CONTAIN BUGS.
+Use is ENTIRELY AT YOUR OWN RISK.
+We assume NO RESPONSIBILITY for damage to hardware, data loss, or system instability.
+Support
+⚠️ NO OFFICIAL SUPPORT PROVIDED FOR THIS VERSION ⚠️
+This is an unsupported legacy release. No technical support, updates, or bug fixes will be provided.
+🎯 Want Full Support and New Features?
+Upgrade to the new version at www.sylvarcon2049.com for active support, certifications, and new challenges.
+Community Assistance:
+Discord: https://discord.com/invite/ujZCPCUSVD
+Email: contact@sylvarcon2049.com (inquiries only)
+Legacy Version: 1.0 (Unsupported)
+Last Updated: November 2025
+Game Version: Standalone Edition
+Status: ⚠️ UNSUPPORTED - USE AT YOUR OWN RISK ⚠️
+
