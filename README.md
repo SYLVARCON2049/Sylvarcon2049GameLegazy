@@ -251,3 +251,8 @@ Upgrade to the new version at **[www.sylvarcon2049.com](https://www.sylvarcon204
 **Last Updated:** November 2025
 **Game Version:** Standalone Edition
 **Status:** ⚠️ UNSUPPORTED - USE AT YOUR OWN RISK ⚠️
+
+---
+
+All Sylvarcon 2049 content — including challenges, stories, characters, artwork and associated materials — is the exclusive property of its creators.
+© Sylvarcon 2049 – All rights reserved.
