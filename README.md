@@ -5,7 +5,7 @@
 >
 > **Prefer not to install this unsupported legacy version?**
 >
-> We have introduced **retrocompatibility** on the official platform at **[www.sylvarcon2049.com](https://www.sylvarcon2049.com)**.
+> We have introduced **retrocompatibility** on the official platform at **[www.sylvarcon2049.com](https://www.sylvarcon2049.com)**. We'll open registration very soon, stay tuned. 
 >
 > You can now access the legacy content directly on the new platform with fully integrated features:
 > * **Mission Descriptions:** View full details within the modern interface.
