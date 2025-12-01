@@ -96,7 +96,9 @@ Sylvarcon 2049/
         ├── VirtualBox-7.0.4-154605-Win.exe
         ├── Claire_Mission_XX/
         └── Sylvarcon-2049/      (Kali Linux VM)
+```text
 
+---
 Step 3: Extract Ethan Mission Packages
 Target Location: Sylvarcon 2049\ (root game directory)
 Navigate to your Sylvarcon 2049 installation root directory.
@@ -116,6 +118,7 @@ Sylvarcon 2049/
 ├── Ethan_Medium_01/
 ├── Ethan_Hard_01/
 └── ...
+---
 
 [!IMPORTANT]
 Ethan mission VM folders must be in the game root directory, NOT inside subdirectories.
@@ -157,6 +160,7 @@ Gateway:     12.0.0.1
 IPv6:        No
 Enabled:     Yes
 
+---
 Save Game Management
 Path: Sylvarcon 2049\Sylvarcon 2049_Data\saves\
 The save files store campaign progression, statistics, and VM configs.
@@ -171,6 +175,7 @@ Launch the game.
 [!NOTE]
 Overwriting save files will permanently replace your current progress unless you create a backup.
 
+---
 Troubleshooting
 
 Problem Possible Solution
