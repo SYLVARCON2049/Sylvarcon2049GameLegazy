@@ -1,4 +1,4 @@
-# Sylvarcon 2049 - Legacy Version Setup Guide
+Markdown# Sylvarcon 2049 - Legacy Version Setup Guide
 
 > [!TIP]
 > **NEW: Retrocompatibility & Web Platform Option**
@@ -86,3 +86,24 @@ Sylvarcon 2049/
         ├── VirtualBox-7.0.4-154605-Win.exe
         ├── Claire_Mission_XX/
         └── Sylvarcon-2049/ (Kali Linux VM)
+Step 3: Extract Ethan Mission PackagesTarget Location: Sylvarcon 2049\ (Root game directory)Navigate to your Sylvarcon 2049 root directory.Extract each Ethan mission package directly here.Expected structure:PlaintextSylvarcon 2049/
+├── Sylvarcon 2049.exe
+├── redist/
+├── Ethan_Easy_01/
+├── Ethan_Medium_01/
+└── Ethan_Hard_01/
+[!IMPORTANT]Ethan mission VM folders must be in the game root directory, NOT inside subdirectories.VirtualBox NAT Network ConfigurationThe game requires a specific NAT Network:Name: SylvarconCIDR: 12.0.0.0/24DHCP: EnabledAutomatic ConfigurationOn first launch, the game attempts to create this network automatically.Manual Configuration (Powershell)If you need to troubleshoot, run these commands as Administrator:PowerShell# 1. Navigate to VirtualBox
+cd "C:\Program Files\Oracle\VirtualBox"
+
+# 2. Remove existing network (if broken)
+.\VBoxManage.exe natnetwork remove --netname Sylvarcon
+
+# 3. Create fresh network
+.\VBoxManage.exe natnetwork add --netname Sylvarcon --network "12.0.0.0/24" --enable --dhcp on
+
+# 4. Start network
+.\VBoxManage.exe natnetwork start --netname Sylvarcon
+
+# 5. Verify
+.\VBoxManage.exe list natnets
+Save Game ManagementPath: Sylvarcon 2049\Sylvarcon 2049_Data\saves\To restore original save files:Backup your current saves folder.Copy your original SLOT1.sav or SLOT2.sav into the directory.Launch the game.TroubleshootingProblemSolutionVM Not FoundVerify folder names match exactly and are in the Root (Ethan) or Redist (PlayerVM) folders.Network ErrorEnsure "Sylvarcon" NAT Network exists in VirtualBox and DHCP is enabled.Disk SpaceCheck you have ~100GB+ free space. Windows VMs are very large (~60GB).7-Zip ErrorsUse the latest version of 7-Zip. Check if the download was corrupted.Legal Notice© 2025 Sylvarcon 2049®. All Rights Reserved.This software is licensed for personal, non-commercial use only.[!WARNING]LIABILITY DISCLAIMERThis legacy software is provided "AS IS". Use at your own risk. We assume no responsibility for data loss, system instability, or hardware issues resulting from the use of these virtual machines.Support:There is NO OFFICIAL SUPPORT for this version.Discord: Join CommunityOfficial Site: www.sylvarcon2049.comStatus: ⚠️ UNSUPPORTED | Last Updated: Nov 2025
